@@ -41,7 +41,7 @@ body {
 	src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 }
 
-/** CALENDARIO STILOS */
+/** CALENDAR */
 
 .react-calendar {
 	font-family: "Playfair Display";
@@ -140,4 +140,63 @@ body {
 
 .react-calendar--selectRange .react-calendar__tile--hover {
 	background-color: var(--colorTree);
+}
+
+/** CLOCK */
+
+.react-clock {
+	display: block;
+	position: relative;
+	font-weight: bold;
+}
+
+.react-clock__face {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border: 1px solid var(--colorOne);
+	border-radius: 50%;
+}
+
+.react-clock__hand {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	right: 50%;
+}
+
+.react-clock__hand__body {
+	position: absolute;
+	background-color: var(--colorTree);
+	border-radius: 5px;
+	transform: translateX(-50%);
+}
+
+.react-clock__mark {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	right: 50%;
+}
+
+.react-clock__mark__body {
+	position: absolute;
+	background-color: none;
+	transform: translateX(-50%);
+}
+
+.react-clock__mark__number {
+	position: absolute;
+	left: -40px;
+	width: 80px;
+	text-align: center;
+	color: var(--colorFive);
+}
+
+.react-clock__second-hand__body {
+	background-color: var(--colorTen);
 }

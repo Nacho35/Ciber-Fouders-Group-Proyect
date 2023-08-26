@@ -24,11 +24,8 @@ const Calendar = () => {
 	}
 
 	return (
-		<div className="w-auto m-4 md:w-3/6 lg:w-3/6 xl:w-3/12">
-			<div>
-				<h1 className="text-center text-xl uppercase pb-3 font-bold font-playfair text-colorFive">
-					TimeSege Calendar
-				</h1>
+		<section className="w-auto m-4 md:w-3/6 lg:w-3/6 xl:w-3/12 self-start">
+			<aside>
 				<div className="text-center font-playfair ">
 					<div className="pt-3 pb-3 flex justify-center bg-colorOne rounded text-colorFive shadow-colorFive shadow-xl">
 						<Time
@@ -64,8 +61,8 @@ const Calendar = () => {
 						{date.toDateString()}
 					</p>
 				)}
-			</div>
-		</div>
+			</aside>
+		</section>
 	);
 };
 
