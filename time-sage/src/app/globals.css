@@ -2,26 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
+/** ROOT */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+	--colorOne: #B2A4FF;
+	--colorTwo: #FFB4B4;
+	--colorTree: #FFDEB4;
+	--colorFour: #FDF7C3;
+	--colorFive: #2C3333;
+	--colorSix: #273444;
+	--colorSeven: #8492a6;
+	--colorEight: #d3dce6;
+	--colorNine: #FFF4F4;
+	--colorTen: #d10000;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	color: rgb(var(--foreground-rgb));
+	background-color: var(--colorNine);
+	color: var(--colorFive);
+}
+
+/** FUNTE */
+@font-face {
+	font-family: "Playfair Display";
+	font-style: normal;
+	font-weight: 400;
+	src: url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+}
+
+/** CALENDARIO STILOS */
+
+.react-calendar {
+	font-family: "Playfair Display";
+	font-weight: 800;
+	text-transform: uppercase;
+}
+
+.react-calendar__navigation {
+	display: flex;
+	height: auto;
+	margin-bottom: 1em;
+}
+
+.react-calendar__navigation button {
+	min-width: 44px;
+	background: none;
+}
+
+.react-calendar button {
+	margin: 0;
+	border: 0;
+	outline: none;
+	text-transform: uppercase;
+}
+
+.react-calendar button:enabled:hover {
+	cursor: pointer;
+}
+
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.75em;
+	font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--weekend {
+	color: var(--colorTen)
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+	color: var(--colorFive);
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+	padding: 2em 0.5em;
+}
+
+.react-calendar__tile {
+	max-width: 100%;
+	padding: 10px;
+	background: none;
+	text-align: center;
+	line-height: 16px;
+}
+
+.react-calendar__tile:disabled {
+	background-color: var(--colorEight)
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+	background-color: var(--colorEight)
+}
+
+.react-calendar__tile--now {
+	background-color: var(--colorTree);
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+	background-color: var(--colorTree);
+}
+
+.react-calendar__tile--hasActive {
+	background-color: var(--colorTwo);
+}
+
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+	background-color: var(--colorTree);
+}
+
+.react-calendar__tile--active {
+	background-color: var(--colorTwo);
+
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+	background-color: var(--colorTwo);
+}
+
+.react-calendar--selectRange .react-calendar__tile--hover {
+	background-color: var(--colorTree);
 }

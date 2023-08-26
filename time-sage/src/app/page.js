@@ -1,7 +1,11 @@
-import React from "react";
-
+import React, { Fragment } from "react";
+import Calendar from "./components/Calendar.jsx";
 const page = () => {
-	return <></>;
+	return (
+		<Fragment>
+			<Calendar />
+		</Fragment>
+	);
 };
 
 export default page;
