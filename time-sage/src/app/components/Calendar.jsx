@@ -19,14 +19,14 @@ const Calendar = () => {
 
 	if (!isClient) {
 		return (
-			<div className=" font-playfair text-colorTen text-2xl">Loading...</div>
+			<div className="loading loading-infinity loading-lg text-info text-2xl "></div>
 		);
 	}
 
 	return (
-		<section className="w-auto m-4 md:w-3/6 lg:w-3/6 xl:w-3/12 self-start">
-			<aside>
-				<div className="text-center font-playfair ">
+		<section className="w-auto md:w-3/6 lg:w-3/6 self-start">
+			<div>
+				<div className="text-center font-Poppins ">
 					<div className="pt-3 pb-3 flex justify-center bg-colorOne rounded text-colorFive shadow-colorFive shadow-xl">
 						<Time
 							onChange={setDate}
@@ -48,20 +48,7 @@ const Calendar = () => {
 						/>
 					</div>
 				</div>
-				{date.length > 0 ? (
-					<p className="text-center font-playfair pt-4 uppercase font-bold">
-						<span className="mr-2 ml-2 text-colorTen">Start:</span>
-						{date[0].toDateString()}
-						<span className="mr-2 ml-2 text-colorTen">End:</span>
-						{date[1].toDateString()}
-					</p>
-				) : (
-					<p className="text-center font-playfair pt-4 uppercase font-bold">
-						<span className="text-colorTen mr-2">selected date:</span>
-						{date.toDateString()}
-					</p>
-				)}
-			</aside>
+			</div>
 		</section>
 	);
 };

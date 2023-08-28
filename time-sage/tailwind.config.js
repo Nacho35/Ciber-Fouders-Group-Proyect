@@ -7,20 +7,19 @@ module.exports = {
 	],
 	theme: {
 		colors: {
-			colorOne: "#B2A4FF",
-			colorTwo: "#FFB4B4",
-			colorTree: "#FFDEB4",
-			colorFour: "#FDF7C3",
-			colorFive: "#2C3333",
-			colorSix: "'#273444'",
-			colorSeven: "#8492a6",
-			colorEight: "#d3dce6",
-			colorNine: "#FFF4F4",
-			colorTen: "#d10000",
+			colorOne: "#9381FF",
+			colorTwo: "#BDE0FE",
+			colorTree: "#FFD6FF",
+			colorFour: "#68D8D6",
+			colorFive: "#E9ECEF",
+			colorSix: "#383838",
+			colorSeven: "#9D9D9D",
+			colorEight: "#CED4DA",
+			colorNine: "#d10000",
 		},
 		extend: {
 			fontFamily: {
-				playfair: ["Playfair Display", "serif"],
+				Poppins: ["Poppins", "sans-serif"],
 			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -29,5 +28,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require("daisyui")],
 };

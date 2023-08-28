@@ -14,11 +14,11 @@ const Clock = () => {
 	}, []);
 
 	return (
-		<section className="flex flex-col items-center md:self-end md:m-auto md:mt-4 md:absolute md:top-0 md:right-0 lg:self-end lg:m-auto lg:mt-4 lg:absolute lg:top-0 lg:right-0">
-			<aside className="flex mr-4">
+		<section className="flex items-center md:self-center md:m-auto md:mt-4 lg:self-start lg:m-auto lg:mt-4">
+			<div className="flex">
 				<Watch
 					className="bg-colorOne rounded-full"
-					size={250}
+					size={200}
 					renderHourMarks={true}
 					renderMinuteHand={true}
 					renderMinuteMarks={false}
@@ -26,7 +26,7 @@ const Clock = () => {
 					renderSecondHand={true}
 					value={watch}
 				/>
-			</aside>
+			</div>
 		</section>
 	);
 };

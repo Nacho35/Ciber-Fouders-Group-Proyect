@@ -1,4 +1,8 @@
 import "./globals.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import "tailwindcss/tailwind.css";
+import "daisyui/dist/full.css";
+
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
