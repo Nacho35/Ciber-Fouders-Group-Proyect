@@ -24,10 +24,10 @@ const Calendar = () => {
 	}
 
 	return (
-		<section className="w-auto md:w-3/6 lg:w-3/6 self-start">
+		<section className="self-start">
 			<div>
 				<div className="text-center font-Poppins ">
-					<div className="pt-3 pb-3 flex justify-center bg-colorOne rounded text-colorFive shadow-colorFive shadow-xl">
+					<div className="pt-3 pb-3 flex justify-center bg-colorOne rounded text-colorFive shadow-colorFive">
 						<Time
 							onChange={setDate}
 							defaultValue={date}

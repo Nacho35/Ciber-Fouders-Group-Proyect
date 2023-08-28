@@ -1,40 +1,46 @@
 import React from "react";
+import Calendar from "./Calendar";
+import Clock from "./Clock";
+import Image from "next/image";
+import clock from "../../../public/images/clock.svg";
+import bars from "../../../public/images/bars.svg";
 
 const Navbar = () => {
 	return (
-		<div className="navbar bg-colorOne font-Poppins">
+		<div className="navbar bg-colorOne font-Poppins fixed top-0 z-50">
 			<div className="navbar-start">
 				<div className="dropdown">
-					<label tabIndex={0} className="btn btn-ghost btn-circle">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							className="h-5 w-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor">
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M4 6h16M4 12h16M4 18h7"
-							/>
-						</svg>
+					<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+						<div className="w-8 rounded-full">
+							<Image src={bars} alt="icon" />
+						</div>
 					</label>
-					<ul
+					<div
 						tabIndex={0}
-						className="menu menu-md uppercase dropdown-content mt-5 z-[1] p-2 shadow bg-colorOne rounded-box w-52">
-						<li>
-							<a href="#">Homepage</a>
-						</li>
-						<li>
-							<a href="#">Add Event</a>
-						</li>
-					</ul>
+						className="menu menu-md uppercase dropdown-content mt-5 z-[1] p-2 shadow bg-colorOne rounded-box w-80 md:w-80 lg:w-80">
+						<div>
+							<Calendar />
+						</div>
+					</div>
 				</div>
-				<div className="navbar-center self-center">
-					<a href="#" className="btn btn-ghost text-xl uppercase">
-						Fast Diary
-					</a>
+			</div>
+			<div className="navbar-center">
+				<a href="#" className="btn btn-ghost text-xl uppercase">
+					Add Event
+				</a>
+			</div>
+			<div className="navbar navbar-end ">
+				<div className=" dropdown dropdown-end">
+					<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+						<div className="w-9 rounded-full">
+							<Image src={clock} alt="icon" />
+						</div>
+					</label>
+					<div
+						tabIndex={0}
+						className="menu dropdown-content ml-5 mt-5 p-2 z-[1] shadow bg-colorOne rounded-full w-fit">
+						<Clock />
+					</div>
 				</div>
 			</div>
 		</div>

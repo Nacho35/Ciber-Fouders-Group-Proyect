@@ -14,7 +14,7 @@ const Clock = () => {
 	}, []);
 
 	return (
-		<section className="flex items-center md:self-center md:m-auto md:mt-4 lg:self-start lg:m-auto lg:mt-4">
+		<section className="flex">
 			<div className="flex">
 				<Watch
 					className="bg-colorOne rounded-full"
