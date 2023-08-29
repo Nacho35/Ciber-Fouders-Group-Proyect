@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const Home = () => {
@@ -19,7 +20,7 @@ const Home = () => {
 						reminders, and jot down notes simply by conversing with your virtual
 						assistant.
 					</p>
-					<a href="#" className="btn btn-outline btn-accent accent-colorFour">
+					<a id="button-animation" href="#diary">
 						Get Started
 					</a>
 				</div>

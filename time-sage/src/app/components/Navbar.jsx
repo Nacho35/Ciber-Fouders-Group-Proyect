@@ -7,7 +7,7 @@ import bars from "../../../public/images/bars.svg";
 
 const Navbar = () => {
 	return (
-		<div className="navbar bg-colorOne font-Poppins fixed top-0 z-50">
+		<div className="navbar bg-colorOne font-Poppins fixed top-0 z-50 h-16">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -23,11 +23,11 @@ const Navbar = () => {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="navbar-center">
-				<a href="#" className="btn btn-ghost text-xl uppercase">
-					Add Event
-				</a>
+				<div className="ml-10">
+					<a href="#" className="btn btn-ghost text-2xl uppercase">
+						Add Event
+					</a>
+				</div>
 			</div>
 			<div className="navbar navbar-end ">
 				<div className=" dropdown dropdown-end">

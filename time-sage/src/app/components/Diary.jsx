@@ -7,18 +7,20 @@ const localizer = momentLocalizer(moment);
 
 const Diary = () => {
 	return (
-		<div className="m-5 w-auto font-Poppins lg:mt-4 lg:self-center md:mt-4 rounded text-colorSix">
-			<div className="card card-body rounded ">
+		<section id="diary">
+			<div className="m-5 mt-10 w-auto font-Poppins rounded text-colorSix min-h-screen">
 				<div className="">
-					<Calendar
-						localizer={localizer}
-						startAccessor="start"
-						endAccessor="end"
-						style={{ height: 500 }}
-					/>
+					<div className="">
+						<Calendar
+							localizer={localizer}
+							startAccessor="start"
+							endAccessor="end"
+							style={{ height: 900 }}
+						/>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
