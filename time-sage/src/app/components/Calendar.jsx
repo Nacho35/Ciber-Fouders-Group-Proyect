@@ -9,19 +9,13 @@ import arrowright from "../../../public/images/right-arrow.svg";
 
 const Calendar = () => {
 	const [date, setDate] = useState(new Date());
-	const [isClient, setIsClient] = useState(false);
+	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
-		if (typeof window !== "undefined") {
-			setIsClient(true);
-		}
+		setMounted(true);
 	}, []);
 
-	if (!isClient) {
-		return (
-			<div className="loading loading-infinity loading-lg text-info text-2xl "></div>
-		);
-	}
+	if (!mounted) return null;
 
 	return (
 		<section className="self-start">

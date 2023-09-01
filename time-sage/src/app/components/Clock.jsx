@@ -4,6 +4,7 @@ import Watch from "react-clock";
 
 const Clock = () => {
 	const [watch, setWatch] = useState(new Date());
+	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
 		const interval = setInterval(() => setWatch(new Date()), 1000);
@@ -12,6 +13,12 @@ const Clock = () => {
 			clearInterval(interval);
 		};
 	}, []);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	if (!mounted) return null;
 
 	return (
 		<section className="flex">

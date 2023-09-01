@@ -7,12 +7,10 @@ import Footer from "./components/Footer.jsx";
 const page = () => {
 	return (
 		<Fragment>
-			<div className="flex flex-col justify-center self-center overflow-hidden">
-				<Navbar />
-				<Home />
-				<Diary />
-				<Footer />
-			</div>
+			<Navbar />
+			<Home />
+			<Diary />
+			<Footer />
 		</Fragment>
 	);
 };

@@ -3,16 +3,16 @@ import Calendar from "./Calendar";
 import Clock from "./Clock";
 import Image from "next/image";
 import clock from "../../../public/images/clock.svg";
-import bars from "../../../public/images/bars.svg";
+import calendar from "../../../public/images/calendar.svg";
 
 const Navbar = () => {
 	return (
 		<div className="navbar bg-colorOne font-Poppins fixed top-0 z-50 h-16">
 			<div className="navbar-start">
 				<div className="dropdown">
-					<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-						<div className="w-8 rounded-full">
-							<Image src={bars} alt="icon" />
+					<label tabIndex={0} className="btn btn-ghost btn-square avatar">
+						<div className="w-10">
+							<Image src={calendar} alt="icon" />
 						</div>
 					</label>
 					<div
@@ -23,16 +23,21 @@ const Navbar = () => {
 						</div>
 					</div>
 				</div>
-				<div className="ml-10">
-					<a href="#" className="btn btn-ghost text-2xl uppercase">
-						Add Event
-					</a>
+				<div>
+					<h3 className="text-colorFive ml-3 font-Poppins font-semibold cursor-default">
+						My Calendar
+					</h3>
 				</div>
 			</div>
 			<div className="navbar navbar-end ">
+				<div>
+					<h3 className="text-colorFive mr-3 font-Poppins font-semibold cursor-default">
+						My Clock
+					</h3>
+				</div>
 				<div className=" dropdown dropdown-end">
-					<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-						<div className="w-9 rounded-full">
+					<label tabIndex={0} className="btn btn-ghost btn-square avatar">
+						<div className="w-10">
 							<Image src={clock} alt="icon" />
 						</div>
 					</label>
