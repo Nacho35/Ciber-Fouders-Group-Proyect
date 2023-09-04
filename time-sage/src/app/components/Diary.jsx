@@ -1,10 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import ModalEvent from "./ModalEvent";
-import { eventsCollection } from "../firebase";
-import { addDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const localizer = momentLocalizer(moment);
 
@@ -13,50 +13,86 @@ const Diary = () => {
 	const [selectedEvent, setSelectedEvent] = useState(null);
 	const [isEditing, setIsEditing] = useState(false);
 
-	const handleSelectEvent = (event) => {
-		setSelectedEvent(event);
-		setIsEditing(true);
+	const options = {
+		position: "top-center",
+		autoClose: 3000,
+		hideProgressBar: true,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+		theme: "colored",
 	};
 
-	const getEvents = async () => {
-		const eventsRef = eventsCollection;
-		const querySnapshot = await getDocs(eventsRef);
-		const eventsData = querySnapshot.docs.map((doc) => doc.data());
-		return eventsData;
+	useEffect(() => {
+		const fetchEvents = async () => {
+			try {
+				const response = await axios.get("http://localhost:3001/events");
+				setEvents(response.data);
+			} catch (error) {
+				console.error("Error fetching events: ", error);
+			}
+		};
+
+		fetchEvents();
+	}, []);
+
+	const handleSelectEvent = (event) => {
+		setSelectedEvent(event);
+		setIsEditing(false);
 	};
 
 	const handleAddEvent = async (newEvent) => {
 		try {
-			const docRef = await addDoc(eventsCollection, newEvent);
-			setEvents([...events, { ...newEvent, id: docRef.id }]);
+			const response = await axios.post(
+				"http://localhost:3001/events",
+				newEvent
+			);
+			const newEventWithId = { ...newEvent, id: response.data.id };
+			setEvents([...events, newEventWithId]);
+			setIsEditing(false);
+			setSelectedEvent(null);
+			toast.success("Event successfully added", options);
 		} catch (error) {
-			console.error("Error adding event: ", error);
+			console.log(error);
+			toast.error("An error occurred while adding the event", options);
 		}
 	};
 
 	const handleEditEvent = async (updatedEvent) => {
 		try {
-			await updateDoc(eventsCollection, updatedEvent.id, updatedEvent);
-			setEvents(
-				events.map((event) =>
+			await axios.put(
+				`http://localhost:3001/events/${updatedEvent.id}`,
+				updatedEvent
+			);
+			setEvents((prevEvents) =>
+				prevEvents.map((event) =>
 					event.id === updatedEvent.id ? updatedEvent : event
 				)
 			);
-			setSelectedEvent(null);
 			setIsEditing(false);
+			setSelectedEvent(null);
+			toast.success("Event successfully updated", options);
 		} catch (error) {
-			console.error("Error editing event: ", error);
+			console.error(error);
+			toast.error("An error occurred while updating the event", options);
 		}
 	};
 
 	const handleDeleteEvent = async (eventToDelete) => {
 		try {
-			await deleteDoc(eventsCollection, eventToDelete.id);
-			setEvents(events.filter((event) => event.id !== eventToDelete.id));
-			setSelectedEvent(null);
+			await axios.delete(`http://localhost:3001/events/${eventToDelete.id}`);
+			setEvents((prevEvents) =>
+				prevEvents.filter((event) => event.id !== eventToDelete.id)
+			);
+			if (selectedEvent && selectedEvent.id === eventToDelete.id) {
+				setSelectedEvent(null);
+			}
 			setIsEditing(false);
+			toast.success("Event removed successfully", options);
 		} catch (error) {
-			console.error("Error deleting event: ", error);
+			console.error(error);
+			toast.error("An error occurred while deleting the event", options);
 		}
 	};
 
@@ -76,7 +112,6 @@ const Diary = () => {
 						<Calendar
 							localizer={localizer}
 							events={events}
-							getEvents={getEvents}
 							onSelectEvent={handleSelectEvent}
 							onSelectSlot={() => {
 								setSelectedEvent(null);

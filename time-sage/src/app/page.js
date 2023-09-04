@@ -3,6 +3,7 @@ import Diary from "./components/Diary.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
 import Footer from "./components/Footer.jsx";
+import { ToastContainer } from "react-toastify";
 
 const page = () => {
 	return (
@@ -11,6 +12,7 @@ const page = () => {
 			<Home />
 			<Diary />
 			<Footer />
+			<ToastContainer />
 		</Fragment>
 	);
 };

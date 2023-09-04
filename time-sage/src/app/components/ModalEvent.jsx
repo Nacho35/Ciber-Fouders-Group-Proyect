@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase";
 
 const ModalEvent = ({
 	onAddEvent,
@@ -18,7 +16,6 @@ const ModalEvent = ({
 	const [finishDate, setFinishDate] = useState("");
 	const [endTime, setEndTime] = useState("");
 	const [isEditing, setIsEditing] = useState(false);
-	const [isDeleting, setIsDeleting] = useState(false);
 
 	useEffect(() => {
 		setMounted(true);
@@ -54,37 +51,28 @@ const ModalEvent = ({
 		setEndTime(e.target.value);
 	};
 
-	const handleDelete = () => {
-		onDeleteEvent(event);
-		setIsDeleting(true);
-	};
-
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log("handleSubmit called");
-		try {
+		if (eventTitle && startDate && startTime && finishDate && endTime) {
 			const newEvent = {
 				title: eventTitle,
 				start: new Date(`${startDate} ${startTime}`),
 				end: new Date(`${finishDate} ${endTime}`),
 			};
-			await addDoc(collection(db, "events"), newEvent);
+
+			if (isEditing) {
+				onEditEvent({ ...event, ...newEvent });
+			} else {
+				onAddEvent(newEvent);
+			}
+
 			onClose();
-		} catch (error) {
-			console.log(error);
 		}
+	};
 
-		if (isDeleting) {
-			return;
-		}
-
-		if (isEditing) {
-			onEditEvent({ ...newEvent, id: event.id });
-		} else {
-			onAddEvent(newEvent);
-		}
-
-		setIsEditing(false);
+	const handleDelete = () => {
+		onDeleteEvent(event);
+		onClose();
 	};
 
 	return (
@@ -103,8 +91,14 @@ const ModalEvent = ({
 			</div>
 			<input type="checkbox" id="modal" className="modal-toggle" />
 			<div className="modal">
-				<form className="modal-box text-colorSix font-Poppins font-medium flex flex-col items-center">
-					<h3 className="font-bold text-lg text-colorOne">Event Title</h3>
+				<form
+					method="post"
+					id="submit"
+					onSubmit={handleSubmit}
+					className="modal-box text-colorSix font-Poppins font-medium flex flex-col items-center">
+					<label htmlFor="event" className="font-bold text-lg text-colorOne">
+						Event Title
+					</label>
 					<input
 						type="text"
 						name="event"
@@ -112,42 +106,63 @@ const ModalEvent = ({
 						value={eventTitle}
 						onChange={handleTitleChange}
 						placeholder="Name of the event"
+						required
 						className="input input-bordered w-full max-w-xs my-3"
 					/>
-					<h3 className="font-bold text-lg text-colorOne">Start Date</h3>
+					<label
+						htmlFor="start-date"
+						className="font-bold text-lg text-colorOne">
+						Start Date
+					</label>
 					<input
 						type="date"
 						name="start-date"
 						id="start-date"
 						value={startDate}
 						onChange={handleStartDateChange}
+						required
 						className="input input-bordered w-full max-w-xs my-3"
 					/>
-					<h3 className="font-bold text-lg text-colorOne">Start Time</h3>
+					<label
+						htmlFor="start-time"
+						className="font-bold text-lg text-colorOne">
+						Start Time
+					</label>
 					<input
 						type="time"
 						name="start-time"
 						id="start-time"
 						value={startTime}
 						onChange={handleStartTime}
+						required
 						className="input input-bordered w-full max-w-xs my-3"
 					/>
-					<h3 className="font-bold text-lg text-colorOne">Finish Date</h3>
+					<label
+						htmlFor="finish-date"
+						className="font-bold text-lg text-colorOne">
+						Finish Date
+					</label>
 					<input
 						type="date"
 						name="finish-date"
 						id="finish-date"
 						value={finishDate}
 						onChange={handleFinishDate}
+						required
 						className="input input-bordered w-full max-w-xs my-3"
 					/>
-					<h3 className="font-bold text-lg text-colorOne">Ending Time</h3>
+					<label
+						htmlFor="ending-time"
+						className="font-bold text-lg text-colorOne">
+						Ending Time
+					</label>
 					<input
 						type="time"
 						name="ending-time"
 						id="ending-time"
 						value={endTime}
 						onChange={handleEndTime}
+						required
 						className="input input-bordered w-full max-w-xs my-3"
 					/>
 					<div className="modal-action">
@@ -155,8 +170,7 @@ const ModalEvent = ({
 							<button
 								className="btn btn-outline btn-success mx-4"
 								type="submit"
-								id="submit"
-								onClick={handleSubmit}>
+								id="submit">
 								{isEditing && event ? "Edit Event" : "Add Event"}
 							</button>
 						</div>
