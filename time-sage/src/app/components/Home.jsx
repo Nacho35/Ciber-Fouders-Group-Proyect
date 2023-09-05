@@ -12,13 +12,13 @@ const Home = () => {
 					</h1>
 					<p className='mb-5 text-justify'>
 						Fast Diary is much more than a simple planner. Its a comprehensive
-						web application that seamlessly combines a clock, a calendar, and a
-						personalized notepad. With Fast Diary, keeping track of your events
-						and tasks has never been easier and more efficient. Our unique
-						feature is integration with ChatGPT, which automates your
+						web application that seamlessly combines a clock, a calendar, a
+						countdown timer, and a task list. With Fast Diary, keeping track of
+						your events and tasks has never been easier and more efficient. Our
+						unique feature is integration with ChatGPT, which automates your
 						organization-related tasks. This means you can schedule events, set
-						reminders, and jot down notes simply by conversing with your virtual
-						assistant.
+						reminders, initiate countdowns, and manage your task list simply by
+						conversing with your virtual assistant.
 					</p>
 					<a id='button-animation' href='#diary'>
 						Get Started

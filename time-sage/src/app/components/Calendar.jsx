@@ -27,6 +27,8 @@ const Calendar = () => {
 							defaultValue={date}
 							selectRange={true}
 							defaultView='month'
+							locale='en-EN'
+							maxDetail='month'
 							nextLabel={
 								<Image src={arrowright2} alt='after month' className='m-auto' />
 							}
