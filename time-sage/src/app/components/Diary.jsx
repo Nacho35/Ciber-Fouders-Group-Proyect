@@ -98,7 +98,7 @@ const Diary = () => {
 	};
 
 	return (
-		<section id='diary'>
+		<section id='diary' className='wallpaper'>
 			<div className='m-5 w-auto font-Poppins rounded text-colorSix min-h-screen'>
 				<div>
 					<div>

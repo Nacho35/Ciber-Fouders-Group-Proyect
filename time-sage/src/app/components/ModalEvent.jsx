@@ -78,14 +78,11 @@ const ModalEvent = ({
 	return (
 		<div>
 			<div>
-				<label htmlFor='modal' className='btn btn-outline btn-primary mb-6'>
+				<label htmlFor='modal' className='general-btn mb-6'>
 					{isEditing && event ? 'Edit Event' : 'Add Event'}
 				</label>
 				{isEditing && (
-					<button
-						className='btn btn-outline btn-error mx-4'
-						onClick={handleDelete}
-					>
+					<button className='general-btn mx-4' onClick={handleDelete}>
 						Delete
 					</button>
 				)}
@@ -173,16 +170,12 @@ const ModalEvent = ({
 					/>
 					<div className='modal-action'>
 						<div>
-							<button
-								className='btn btn-outline btn-success mx-4'
-								type='submit'
-								id='submit'
-							>
+							<button className='general-btn mx-4' type='submit' id='submit'>
 								{isEditing && event ? 'Edit Event' : 'Add Event'}
 							</button>
 						</div>
 						<div>
-							<label htmlFor='modal' className='btn btn-outline btn-error'>
+							<label htmlFor='modal' className='general-btn'>
 								Close
 							</label>
 						</div>

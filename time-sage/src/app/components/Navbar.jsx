@@ -1,21 +1,25 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Calendar from './Calendar';
 import Clock from './Clock';
 import Image from 'next/image';
 import clock from '../../../public/images/clock.svg';
 import calendar from '../../../public/images/calendar.svg';
 import timer from '../../../public/images/timer.svg';
+import { navAnimation } from '../animations';
 import ModalCountdown from './ModalCountdown';
 
 const Navbar = () => {
+	useEffect(() => {
+		navAnimation();
+	}, []);
 	return (
 		<div className='navbar bg-colorOne font-Poppins fixed top-0 z-50 h-16'>
 			<div className='navbar-start'>
 				<div className='dropdown'>
 					<label tabIndex={0} className='btn btn-ghost btn-square avatar'>
 						<div className='w-11'>
-							<Image src={calendar} alt='icon' />
+							<Image id='calendar' src={calendar} alt='icon' />
 						</div>
 					</label>
 					<div
@@ -31,7 +35,7 @@ const Navbar = () => {
 			<div className='dropdown dropdown-content self-center'>
 				<label tabIndex={0} className='btn btn-ghost btn-square avatar'>
 					<div className='w-11'>
-						<Image src={timer} alt='icon' />
+						<Image id='timer' src={timer} alt='icon' />
 					</div>
 				</label>
 				<div
@@ -45,7 +49,7 @@ const Navbar = () => {
 				<div className=' dropdown dropdown-end'>
 					<label tabIndex={0} className='btn btn-ghost btn-square avatar'>
 						<div className='w-11'>
-							<Image src={clock} alt='icon' />
+							<Image id='clock' src={clock} alt='icon' />
 						</div>
 					</label>
 					<div

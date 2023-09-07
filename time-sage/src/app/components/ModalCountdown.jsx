@@ -59,7 +59,7 @@ const ModalCountdown = () => {
 					<div className='modal-action'>
 						<div>
 							<button
-								className='btn btn-outline btn-success'
+								className='general-btn'
 								type='button'
 								onClick={handleStart}
 							>
