@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import ModalEvent from './ModalEvent';
+import EditEventModal from './EditEventModal';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -11,6 +12,7 @@ const localizer = momentLocalizer(moment);
 const Diary = () => {
 	const [events, setEvents] = useState([]);
 	const [selectedEvent, setSelectedEvent] = useState(null);
+	const [isAdding, setIsAdding] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const options = {
@@ -104,12 +106,19 @@ const Diary = () => {
 					<div>
 						<ModalEvent
 							onAddEvent={handleAddEvent}
-							onEditEvent={handleEditEvent}
 							onDeleteEvent={handleDeleteEvent}
+							event={selectedEvent}
+							isOpen={isAdding}
+							onClose={() => setIsAdding(false)}
+						/>
+
+						<EditEventModal
 							event={selectedEvent}
 							isOpen={isEditing}
 							onClose={() => setIsEditing(false)}
+							onEditEvent={handleEditEvent}
 						/>
+
 						<Calendar
 							localizer={localizer}
 							events={events}

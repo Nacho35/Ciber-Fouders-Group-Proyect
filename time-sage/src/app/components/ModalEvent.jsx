@@ -1,21 +1,13 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-const ModalEvent = ({
-	onAddEvent,
-	onEditEvent,
-	onDeleteEvent,
-	event,
-	isOpen,
-	onClose,
-}) => {
+const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 	const [mounted, setMounted] = useState(false);
 	const [eventTitle, setEventTitle] = useState('');
 	const [startDate, setStartDate] = useState('');
 	const [startTime, setStartTime] = useState('');
 	const [finishDate, setFinishDate] = useState('');
 	const [endTime, setEndTime] = useState('');
-	const [isEditing, setIsEditing] = useState(false);
 
 	useEffect(() => {
 		setMounted(true);
@@ -25,7 +17,6 @@ const ModalEvent = ({
 			setStartTime(event.start);
 			setFinishDate(event.end);
 			setEndTime(event.end);
-			setIsEditing(true);
 		}
 	}, [event]);
 
@@ -59,13 +50,7 @@ const ModalEvent = ({
 				start: new Date(`${startDate} ${startTime}`),
 				end: new Date(`${finishDate} ${endTime}`),
 			};
-
-			if (isEditing) {
-				onEditEvent({ ...event, ...newEvent });
-			} else {
-				onAddEvent(newEvent);
-			}
-
+			onAddEvent(newEvent);
 			onClose();
 		}
 	};
@@ -79,16 +64,16 @@ const ModalEvent = ({
 		<div>
 			<div>
 				<label htmlFor='modal' className='general-btn mb-6'>
-					{isEditing && event ? 'Edit Event' : 'Add Event'}
+					Add Event
 				</label>
-				{isEditing && (
+				{event && (
 					<button className='general-btn mx-4' onClick={handleDelete}>
 						Delete
 					</button>
 				)}
 			</div>
 			<input type='checkbox' id='modal' className='modal-toggle' />
-			<div className='modal'>
+			<div className={`modal ${isOpen ? 'block' : 'hidden'}`}>
 				<form
 					method='post'
 					id='submit'
@@ -171,7 +156,7 @@ const ModalEvent = ({
 					<div className='modal-action'>
 						<div>
 							<button className='general-btn mx-4' type='submit' id='submit'>
-								{isEditing && event ? 'Edit Event' : 'Add Event'}
+								Add
 							</button>
 						</div>
 						<div>
