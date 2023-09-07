@@ -123,13 +123,13 @@ const Diary = () => {
 							localizer={localizer}
 							events={events}
 							onSelectEvent={handleSelectEvent}
+							startAccessor='start'
+							endAccessor='end'
+							style={{ height: 900 }}
 							onSelectSlot={() => {
 								setSelectedEvent(null);
 								setIsEditing(true);
 							}}
-							startAccessor='start'
-							endAccessor='end'
-							style={{ height: 900 }}
 						/>
 					</div>
 				</div>

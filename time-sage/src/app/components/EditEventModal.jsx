@@ -64,89 +64,103 @@ const EditEventModal = ({ event, onEditEvent }) => {
 	return (
 		<div>
 			{isEventSelected && (
-				<label htmlFor='edit_modal' className='general-btn'>
+				<label htmlFor='edit_modal' className='general-btn-3 mb-6'>
 					Edit Event
 				</label>
 			)}
 			<input type='checkbox' id='edit_modal' className='modal-toggle' />
 			<div className='modal'>
-				<div className='modal-box'>
-					<form method='post' onSubmit={handleSubmit} className='modal-content'>
-						<label htmlFor='event' className='font-bold text-colorOne'>
-							Event Title
-						</label>
-						<input
-							type='text'
-							name='event'
-							id='event'
-							value={eventTitle}
-							onChange={handleTitleChange}
-							placeholder='Nombre del evento'
-							required
-							className='input input-bordered w-full max-w-xs my-3'
-						/>
-						<label htmlFor='start-date' className='font-bold text-colorOne'>
-							Start Date
-						</label>
-						<input
-							type='date'
-							name='start-date'
-							id='start-date'
-							value={startDate}
-							onChange={handleStartDateChange}
-							required
-							className='input input-bordered w-full max-w-xs my-3'
-						/>
-						<label htmlFor='start-time' className='font-bold text-colorOne'>
-							Start Time
-						</label>
-						<input
-							type='time'
-							name='start-time'
-							id='start-time'
-							value={startTime}
-							onChange={handleStartTimeChange}
-							required
-							className='input input-bordered w-full max-w-xs my-3'
-						/>
-						<label htmlFor='finish-date' className='font-bold text-colorOne'>
-							Finish Date
-						</label>
-						<input
-							type='date'
-							name='finish-date'
-							id='finish-date'
-							value={finishDate}
-							onChange={handleFinishDateChange}
-							required
-							className='input input-bordered w-full max-w-xs my-3'
-						/>
-						<label htmlFor='ending-time' className='font-bold text-colorOne'>
-							Ending Time
-						</label>
-						<input
-							type='time'
-							name='ending-time'
-							id='ending-time'
-							value={endTime}
-							onChange={handleEndTimeChange}
-							required
-							className='input input-bordered w-full max-w-xs my-3'
-						/>
-						<div className='modal-action'>
-							<div>
-								<button className='btn' type='submit'>
-									Save
-								</button>
-							</div>
-							<div>
-								<label htmlFor='edit_modal' className='btn'>
-									Close
-								</label>
-							</div>
+				<form
+					method='post'
+					onSubmit={handleSubmit}
+					className='modal-box text-colorSix font-Poppins font-medium flex flex-col items-center'
+				>
+					<label htmlFor='event' className='font-bold text-lg text-colorOne'>
+						Event Title
+					</label>
+					<input
+						type='text'
+						name='event'
+						id='event'
+						value={eventTitle}
+						onChange={handleTitleChange}
+						placeholder='Nombre del evento'
+						required
+						className='input input-bordered w-full max-w-xs my-3'
+					/>
+					<label
+						htmlFor='start-date'
+						className='font-bold text-lg text-colorOne'
+					>
+						Start Date
+					</label>
+					<input
+						type='date'
+						name='start-date'
+						id='start-date'
+						value={startDate}
+						onChange={handleStartDateChange}
+						required
+						className='input input-bordered w-full max-w-xs my-3'
+					/>
+					<label
+						htmlFor='start-time'
+						className='font-bold text-lg text-colorOne'
+					>
+						Start Time
+					</label>
+					<input
+						type='time'
+						name='start-time'
+						id='start-time'
+						value={startTime}
+						onChange={handleStartTimeChange}
+						required
+						className='input input-bordered w-full max-w-xs my-3'
+					/>
+					<label
+						htmlFor='finish-date'
+						className='font-bold text-lg text-colorOne'
+					>
+						Finish Date
+					</label>
+					<input
+						type='date'
+						name='finish-date'
+						id='finish-date'
+						value={finishDate}
+						onChange={handleFinishDateChange}
+						required
+						className='input input-bordered w-full max-w-xs my-3'
+					/>
+					<label
+						htmlFor='ending-time'
+						className='font-bold text-lg text-colorOne'
+					>
+						Ending Time
+					</label>
+					<input
+						type='time'
+						name='ending-time'
+						id='ending-time'
+						value={endTime}
+						onChange={handleEndTimeChange}
+						required
+						className='input input-bordered w-full max-w-xs my-3'
+					/>
+					<div className='modal-action'>
+						<div>
+							<button className='general-btn mx-4' type='submit'>
+								Save
+							</button>
 						</div>
-					</form>
-				</div>
+						<div>
+							<label htmlFor='edit_modal' className='general-btn-2'>
+								Close
+							</label>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	);

@@ -67,7 +67,7 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 					Add Event
 				</label>
 				{event && (
-					<button className='general-btn mx-4' onClick={handleDelete}>
+					<button className='general-btn-2 ml-6' onClick={handleDelete}>
 						Delete
 					</button>
 				)}
@@ -160,7 +160,7 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 							</button>
 						</div>
 						<div>
-							<label htmlFor='modal' className='general-btn'>
+							<label htmlFor='modal' className='general-btn-2'>
 								Close
 							</label>
 						</div>
