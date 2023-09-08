@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import ModalEvent from './ModalEvent';
+import EditEventModal from './EditEventModal';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -11,6 +12,7 @@ const localizer = momentLocalizer(moment);
 const Diary = () => {
 	const [events, setEvents] = useState([]);
 	const [selectedEvent, setSelectedEvent] = useState(null);
+	const [isAdding, setIsAdding] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const options = {
@@ -28,7 +30,12 @@ const Diary = () => {
 		const fetchEvents = async () => {
 			try {
 				const response = await axios.get('http://localhost:3001/events');
-				setEvents(response.data);
+				const events = response.data.map(event => ({
+					...event,
+					start: new Date(event.start),
+					end: new Date(event.end),
+				}));
+				setEvents(events);
 			} catch (error) {
 				console.error(error);
 				toast.error('Error fetching events', options);
@@ -97,6 +104,19 @@ const Diary = () => {
 		}
 	};
 
+	const eventStyleGetter = () => {
+		const eventStyle = {
+			backgroundColor: '#9381ff',
+			borderRadius: '0',
+			color: '#ffff',
+			border: '0',
+			display: 'block',
+		};
+		return {
+			style: eventStyle,
+		};
+	};
+
 	return (
 		<section id='diary' className='wallpaper'>
 			<div className='m-5 w-auto font-Poppins rounded text-colorSix min-h-screen'>
@@ -104,23 +124,31 @@ const Diary = () => {
 					<div>
 						<ModalEvent
 							onAddEvent={handleAddEvent}
-							onEditEvent={handleEditEvent}
 							onDeleteEvent={handleDeleteEvent}
+							event={selectedEvent}
+							isOpen={isAdding}
+							onClose={() => setIsAdding(false)}
+						/>
+
+						<EditEventModal
 							event={selectedEvent}
 							isOpen={isEditing}
 							onClose={() => setIsEditing(false)}
+							onEditEvent={handleEditEvent}
 						/>
+
 						<Calendar
 							localizer={localizer}
 							events={events}
 							onSelectEvent={handleSelectEvent}
+							startAccessor='start'
+							endAccessor='end'
+							style={{ height: 900, color: '#9381ff' }}
+							eventPropGetter={eventStyleGetter}
 							onSelectSlot={() => {
 								setSelectedEvent(null);
 								setIsEditing(true);
 							}}
-							startAccessor='start'
-							endAccessor='end'
-							style={{ height: 900 }}
 						/>
 					</div>
 				</div>

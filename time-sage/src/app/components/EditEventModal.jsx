@@ -1,27 +1,31 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState, useEffect } from 'react';
 
-const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
-	const [mounted, setMounted] = useState(false);
+const EditEventModal = ({ event, onEditEvent }) => {
 	const [eventTitle, setEventTitle] = useState('');
 	const [startDate, setStartDate] = useState('');
 	const [startTime, setStartTime] = useState('');
 	const [finishDate, setFinishDate] = useState('');
 	const [endTime, setEndTime] = useState('');
+	const [isEventSelected, setIsEventSelected] = useState(false);
 
 	useEffect(() => {
-		setMounted(true);
 		if (event) {
 			setEventTitle(event.title);
 			setStartDate(event.start);
 			setStartTime(event.start);
 			setFinishDate(event.end);
 			setEndTime(event.end);
+			setIsEventSelected(true);
+		} else {
+			setEventTitle('');
+			setStartDate('');
+			setStartTime('');
+			setFinishDate('');
+			setEndTime('');
+			setIsEventSelected(false);
 		}
 	}, [event]);
-
-	if (!mounted) return null;
 
 	const handleTitleChange = e => {
 		setEventTitle(e.target.value);
@@ -31,54 +35,43 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 		setStartDate(e.target.value);
 	};
 
-	const handleStartTime = e => {
+	const handleStartTimeChange = e => {
 		setStartTime(e.target.value);
 	};
 
-	const handleFinishDate = e => {
+	const handleFinishDateChange = e => {
 		setFinishDate(e.target.value);
 	};
 
-	const handleEndTime = e => {
+	const handleEndTimeChange = e => {
 		setEndTime(e.target.value);
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		if (eventTitle && startDate && startTime && finishDate && endTime) {
-			const newEvent = {
-				id: uuidv4(),
+			const editedEvent = {
+				...event,
 				title: eventTitle,
 				start: new Date(`${startDate} ${startTime}`),
 				end: new Date(`${finishDate} ${endTime}`),
 			};
-			onAddEvent(newEvent);
-			onClose();
-		}
-	};
 
-	const handleDelete = () => {
-		onDeleteEvent(event);
-		onClose();
+			onEditEvent(editedEvent);
+		}
 	};
 
 	return (
 		<div>
-			<div>
-				<label htmlFor='modal' className='general-btn mb-6'>
-					Add Event
+			{isEventSelected && (
+				<label htmlFor='edit_modal' className='general-btn-3 mb-6'>
+					Edit Event
 				</label>
-				{event && (
-					<button className='general-btn-2 ml-6' onClick={handleDelete}>
-						Delete
-					</button>
-				)}
-			</div>
-			<input type='checkbox' id='modal' className='modal-toggle' />
-			<div className={`modal ${isOpen ? 'block' : 'hidden'}`}>
+			)}
+			<input type='checkbox' id='edit_modal' className='modal-toggle' />
+			<div className='modal'>
 				<form
 					method='post'
-					id='submit'
 					onSubmit={handleSubmit}
 					className='modal-box text-colorSix font-Poppins font-medium flex flex-col items-center'
 				>
@@ -91,7 +84,7 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 						id='event'
 						value={eventTitle}
 						onChange={handleTitleChange}
-						placeholder='Name of the event'
+						placeholder='Nombre del evento'
 						required
 						className='input input-bordered w-full max-w-xs my-3'
 					/>
@@ -121,7 +114,7 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 						name='start-time'
 						id='start-time'
 						value={startTime}
-						onChange={handleStartTime}
+						onChange={handleStartTimeChange}
 						required
 						className='input input-bordered w-full max-w-xs my-3'
 					/>
@@ -136,7 +129,7 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 						name='finish-date'
 						id='finish-date'
 						value={finishDate}
-						onChange={handleFinishDate}
+						onChange={handleFinishDateChange}
 						required
 						className='input input-bordered w-full max-w-xs my-3'
 					/>
@@ -151,18 +144,18 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 						name='ending-time'
 						id='ending-time'
 						value={endTime}
-						onChange={handleEndTime}
+						onChange={handleEndTimeChange}
 						required
 						className='input input-bordered w-full max-w-xs my-3'
 					/>
 					<div className='modal-action'>
 						<div>
-							<button className='general-btn mx-4' type='submit' id='submit'>
-								Add
+							<button className='general-btn mx-4' type='submit'>
+								Save
 							</button>
 						</div>
 						<div>
-							<label htmlFor='modal' className='general-btn-2'>
+							<label htmlFor='edit_modal' className='general-btn-2'>
 								Close
 							</label>
 						</div>
@@ -173,4 +166,4 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 	);
 };
 
-export default ModalEvent;
+export default EditEventModal;
