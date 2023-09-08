@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 	const [mounted, setMounted] = useState(false);
@@ -46,6 +47,7 @@ const ModalEvent = ({ onAddEvent, onDeleteEvent, event, isOpen, onClose }) => {
 		e.preventDefault();
 		if (eventTitle && startDate && startTime && finishDate && endTime) {
 			const newEvent = {
+				id: uuidv4(),
 				title: eventTitle,
 				start: new Date(`${startDate} ${startTime}`),
 				end: new Date(`${finishDate} ${endTime}`),
