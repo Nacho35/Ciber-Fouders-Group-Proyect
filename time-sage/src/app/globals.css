@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /** ROOT */
+
 :root {
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
@@ -28,14 +29,17 @@
 	}
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	color: rgb(var(--foreground-rgb));
 	background-color: #ffffff;
 	color: var(--colorFive);
-	overflow: hidden;
 }
 
-/** FUNTE */
+/** FONT */
 
 @font-face {
 	font-family: 'Poppins', sans-serif;

@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect } from 'react';
+import { Link } from 'react-scroll';
 import { homeAnimation } from '../animations';
 
 const Home = () => {
@@ -32,9 +33,16 @@ const Home = () => {
 						conversing with your virtual assistant.
 					</p>
 					<div id='button-home'>
-						<a className='bt-home' href='#diary'>
+						<Link
+							to='diary'
+							spy={true}
+							smooth={true}
+							offset={-70}
+							duration={500}
+							className='bt-home'
+						>
 							Get Started
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>
