@@ -4,7 +4,6 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'tailwindcss/tailwind.css';
 import 'daisyui/dist/full.css';
-import 'react-perfect-scrollbar/dist/css/styles.css';
 
 import { Inter } from 'next/font/google';
 
