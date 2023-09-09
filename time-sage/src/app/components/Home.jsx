@@ -10,7 +10,7 @@ const Home = () => {
 
 	return (
 		<div id='background' className='hero min-h-screen font-Poppins'>
-			<div className='hero-overlay bg-opacity-60'></div>
+			<div id='home' className='hero-overlay bg-opacity-60'></div>
 			<div className='hero-content text-center'>
 				<div className='w-auto md:w-3/5 lg:w-3/4'>
 					<h1
