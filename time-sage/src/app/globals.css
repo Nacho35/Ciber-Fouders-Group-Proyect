@@ -450,3 +450,12 @@ body {
 .general-btn-3:not(:disabled):active {
 	transform: translateY(.125rem);
 }
+
+/** TO DO */
+
+.wallpaper-task {
+	background-image: url(../../public/images/background1.svg);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center;
+}

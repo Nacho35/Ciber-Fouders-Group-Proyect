@@ -45,7 +45,7 @@ const Navbar = () => {
 				</Link>
 				<Link
 					id='task'
-					to='task'
+					to='tasks'
 					spy={true}
 					smooth={true}
 					offset={-70}
