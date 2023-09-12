@@ -34,7 +34,7 @@ export const navAnimation = () => {
 	);
 
 	gsap.fromTo(
-		'#timer',
+		'#fast',
 		{
 			y: -100,
 		},
@@ -42,7 +42,7 @@ export const navAnimation = () => {
 	);
 
 	gsap.fromTo(
-		'#clock',
+		'#task',
 		{
 			y: -100,
 		},
