@@ -119,7 +119,7 @@ const Diary = () => {
 
 	return (
 		<section id='diary' className='wallpaper'>
-			<div className='m-5 w-auto font-Poppins rounded text-colorSix min-h-screen'>
+			<div className='m-5 w-auto h-fit font-Poppins rounded text-colorSix min-h-screen'>
 				<div>
 					<div>
 						<ModalEvent

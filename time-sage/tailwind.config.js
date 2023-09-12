@@ -15,7 +15,9 @@ module.exports = {
 			colorSix: '#383838',
 			colorSeven: '#9D9D9D',
 			colorEight: '#CED4DA',
-			colorNine: '#d10000',
+			colorNine: '#FF8080',
+			colorTen: '#7EAA92',
+			colorEleven: '#7286D3',
 		},
 		extend: {
 			fontFamily: {
