@@ -7,6 +7,9 @@ import clock from '../../../public/images/clock.svg';
 import calendar from '../../../public/images/calendar.svg';
 import timer from '../../../public/images/timer.svg';
 import bars from '../../../public/images/bars.svg';
+import calendar2 from '../../../public/images/calendar-days.svg';
+import task from '../../../public/images/task-list.svg';
+import logo from '../../../public/images/logo.webp';
 import { navAnimation } from '../animations';
 import ModalCountdown from './ModalCountdown';
 import { Link } from 'react-scroll';
@@ -26,9 +29,9 @@ const Navbar = () => {
 					smooth={true}
 					offset={-70}
 					duration={500}
-					className='btn btn-ghost normal-case'
+					className='normal-case cursor-pointer'
 				>
-					Fast Diary
+					<Image src={logo} alt='icon' className='w-28 h-28' />
 				</Link>
 			</div>
 			<div className='navbar justify-evenly font-semibold'>
@@ -41,7 +44,7 @@ const Navbar = () => {
 					duration={500}
 					className='btn btn-ghost normal-case'
 				>
-					Calendar
+					<Image src={calendar2} alt='icon' />
 				</Link>
 				<Link
 					id='task'
@@ -52,7 +55,7 @@ const Navbar = () => {
 					duration={500}
 					className='btn btn-ghost normal-case'
 				>
-					Task
+					<Image src={task} alt='icon' />
 				</Link>
 			</div>
 			<div className='drawer z-50 text-end'>
