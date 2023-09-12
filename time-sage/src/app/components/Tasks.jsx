@@ -102,7 +102,11 @@ const Tasks = () => {
 
 			const updatedTasks = tasks.map(task =>
 				task.id === taskId
-					? { ...task, isEditing: false, ...updatedTask }
+					? {
+							...task,
+							isEditing: false,
+							description: taskToUpdate.editedDescription,
+					  }
 					: task
 			);
 			setTasks(updatedTasks);
