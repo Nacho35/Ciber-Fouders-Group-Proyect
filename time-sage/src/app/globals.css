@@ -55,6 +55,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: auto;
 	background-position: center;
+	background-attachment: fixed;
 }
 
 /** HOME */
@@ -62,8 +63,13 @@ body {
 #background {
 	background-image: url(../../public/images/home-background.svg);
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: auto;
 	background-position: center;
+	background-attachment: fixed;
+
+	@media (min-width: 1200px) {
+		background-size: 40%;
+	}
 }
 
 /** BUTTON HOME */
@@ -458,6 +464,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: auto;
 	background-position: center;
+	background-attachment: fixed;
 }
 
 /** CHAT BOX */
