@@ -147,99 +147,101 @@ const Tasks = () => {
 	};
 
 	return (
-		<section
-			id='tasks'
-			className='min-h-screen font-Poppins break-words p-2 w-full wallpaper-task'
-		>
-			<div className='mx-4 mb-4'>
-				<input
-					type='text'
-					placeholder='New Task'
-					required
-					value={newTask}
-					onChange={e => setNewTask(e.target.value)}
-					className='input input-bordered max-w-xs w-fit text-colorSix'
-				/>
-				<button onClick={handleAddTask} className='general-btn mx-3 my-3'>
-					Add Task
-				</button>
-			</div>
-			<DragDropContext onDragEnd={onDragEnd}>
-				<Droppable droppableId='taskList' direction='vertical'>
-					{provided => (
-						<div
-							ref={provided.innerRef}
-							{...provided.droppableProps}
-							className='p-4'
-						>
-							{tasks.map((task, index) => (
-								<Draggable key={task.id} draggableId={task.id} index={index}>
-									{provided => (
-										<div
-											ref={provided.innerRef}
-											{...provided.draggableProps}
-											{...provided.dragHandleProps}
-										>
-											<div className='w-auto h-fit p-2 my-4 glass text-colorEleven flex items-center justify-between'>
-												<div className='flex items-center'>
-													<input
-														type='checkbox'
-														checked={task.completed}
-														onChange={() => toggleCompleteTask(task.id)}
-														className='checkbox checkbox-primary'
-													/>
-													<label className='ml-2 break-all'>
-														{task.description}
-													</label>
-												</div>
-												<div className='flex items-center'>
-													{task.isEditing ? (
-														<div>
-															<input
-																type='text'
-																className='input input-bordered w-fit max-w-xs text-colorSix'
-																value={task.editedDescription}
-																onChange={e =>
-																	handleEditDescription(task.id, e.target.value)
-																}
-															/>
-															<button
-																onClick={() => {
-																	toggleEditTask(task.id);
-																	handleSaveEdit(task.id);
-																}}
-																className='btn btn-ghost mx-3'
-															>
-																SAVE
-															</button>
-														</div>
-													) : (
-														<div className='card-actions'>
-															<button
-																onClick={() => toggleEditTask(task.id)}
-																className='btn btn-ghost'
-															>
-																<Image src={write} alt='icon' />
-															</button>
-															<button
-																onClick={() => handleDeleteTask(task.id)}
-																className='btn btn-ghost'
-															>
-																<Image src={trash} alt='icon' />
-															</button>
-														</div>
-													)}
+		<section id='tasks' className='wallpaper-task'>
+			<div className='min-h-screen font-Poppins break-words p-2 w-full '>
+				<div className='mx-4 mb-4'>
+					<input
+						type='text'
+						placeholder='New Task'
+						required
+						value={newTask}
+						onChange={e => setNewTask(e.target.value)}
+						className='input input-bordered max-w-xs w-fit text-colorSix'
+					/>
+					<button onClick={handleAddTask} className='general-btn mx-3 my-3'>
+						Add Task
+					</button>
+				</div>
+				<DragDropContext onDragEnd={onDragEnd}>
+					<Droppable droppableId='taskList' direction='vertical'>
+						{provided => (
+							<div
+								ref={provided.innerRef}
+								{...provided.droppableProps}
+								className='p-4'
+							>
+								{tasks.map((task, index) => (
+									<Draggable key={task.id} draggableId={task.id} index={index}>
+										{provided => (
+											<div
+												ref={provided.innerRef}
+												{...provided.draggableProps}
+												{...provided.dragHandleProps}
+											>
+												<div className='w-auto h-fit p-2 my-4 glass text-colorEleven block items-center justify-between md:block lg:flex'>
+													<div className='flex items-center my-3'>
+														<input
+															type='checkbox'
+															checked={task.completed}
+															onChange={() => toggleCompleteTask(task.id)}
+															className='checkbox checkbox-primary'
+														/>
+														<label className='ml-2 break-all'>
+															{task.description}
+														</label>
+													</div>
+													<div className='flex items-center'>
+														{task.isEditing ? (
+															<div>
+																<input
+																	type='text'
+																	className='input input-bordered w-fit max-w-xs text-colorSix'
+																	value={task.editedDescription}
+																	onChange={e =>
+																		handleEditDescription(
+																			task.id,
+																			e.target.value
+																		)
+																	}
+																/>
+																<button
+																	onClick={() => {
+																		toggleEditTask(task.id);
+																		handleSaveEdit(task.id);
+																	}}
+																	className='btn btn-ghost mx-3 lg:my-2'
+																>
+																	SAVE
+																</button>
+															</div>
+														) : (
+															<div className='card-actions'>
+																<button
+																	onClick={() => toggleEditTask(task.id)}
+																	className='btn btn-ghost'
+																>
+																	<Image src={write} alt='icon' />
+																</button>
+																<button
+																	onClick={() => handleDeleteTask(task.id)}
+																	className='btn btn-ghost'
+																>
+																	<Image src={trash} alt='icon' />
+																</button>
+															</div>
+														)}
+													</div>
 												</div>
 											</div>
-										</div>
-									)}
-								</Draggable>
-							))}
-							{provided.placeholder}
-						</div>
-					)}
-				</Droppable>
-			</DragDropContext>
+										)}
+									</Draggable>
+								))}
+								{provided.placeholder}
+							</div>
+						)}
+					</Droppable>
+				</DragDropContext>
+			</div>
 		</section>
 	);
 };
