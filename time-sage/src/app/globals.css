@@ -459,3 +459,13 @@ body {
 	background-size: auto;
 	background-position: center;
 }
+
+/** CHAT BOX */
+
+.react-chatbot-kit-chat-input {
+	color: #383838;
+}
+
+.react-chatbot-kit-chat-input:focus {
+	outline: none;
+}

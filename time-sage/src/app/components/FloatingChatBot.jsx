@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ChatBot from './ChatBot';
 import Image from 'next/image';
-import face from '../../../public/images/humanoid.svg';
+import message from '../../../public/images/message.svg';
 
 function FloatingChatBot() {
 	const [isChatOpen, setIsChatOpen] = useState(false);
@@ -20,8 +20,8 @@ function FloatingChatBot() {
 			{isChatOpen ? (
 				<ChatBot onClose={handleChatClose} />
 			) : (
-				<button onClick={handleChatOpen} className='m-3'>
-					<Image src={face} alt='icon' />
+				<button onClick={handleChatOpen} className='m-6'>
+					<Image src={message} alt='icon' />
 				</button>
 			)}
 		</div>

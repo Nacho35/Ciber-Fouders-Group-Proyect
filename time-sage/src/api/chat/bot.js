@@ -1,38 +1,62 @@
 import { Configuration, OpenAIApi } from 'openai-edge';
-const dotenv = require('dotenv');
+require('dotenv').config();
 
-dotenv.config();
-
-const config = new Configuration({
-	apiKey: process.env.OPENAI_API_KEY,
+const configuration = new Configuration({
+	apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
+const openai = new OpenAIApi(configuration);
 
-const openai = new OpenAIApi(config);
+export default async function handler(req, res) {
+	if (req.method === 'POST') {
+		const { message } = req.body;
 
-async function getChatbotResponse(prompt) {
-	const chatGptMessages = [
-		{
-			role: 'system',
-			content: 'You are a helpful assistant.',
-		},
-		{
-			role: 'user',
-			content: prompt,
-		},
-	];
+		const chatGptMessages = [
+			{
+				role: 'system',
+				content: 'You are a helpful assistant.',
+			},
+			{
+				role: 'user',
+				content: message,
+			},
+		];
 
-	try {
-		const res = await openai.createChatCompletion({
-			messages: chatGptMessages,
-			model: 'gpt-3.5-turbo',
-		});
+		try {
+			const response = await openai.createChatCompletion({
+				messages: chatGptMessages,
+				model: 'gpt-3.5-turbo',
+			});
 
-		console.log(res);
-		return res?.data?.choices?.[0]?.message?.content ?? 'No response';
-	} catch (error) {
-		console.error('Error al enviar la solicitud a OpenAI:', error);
-		throw error;
+			res
+				.status(200)
+				.json({ message: response.data.choices[0].message.content });
+		} catch (error) {
+			console.error('Error al enviar la solicitud a OpenAI:', error);
+			res.status(500).json({ error: 'Hubo un error al procesar tu solicitud' });
+		}
+	} else {
+		res.status(405).json({ error: 'Sólo se permiten solicitudes POST' });
 	}
 }
 
-module.exports = { getChatbotResponse };
+// export async function getChatbotResponse(message) {
+// 	try {
+// 		const response = await fetch('https://api.openai.com/v1/chat/completions', {
+// 			method: 'POST',
+// 			headers: {
+// 				'Content-Type': 'application/json',
+// 			},
+// 			body: JSON.stringify({ message }),
+// 		});
+
+// 		if (!response.ok) {
+// 			throw new Error('Error al enviar la solicitud');
+// 		}
+
+// 		const data = await response.json();
+// 		return data.message;
+// 	} catch (error) {
+// 		console.error('Error al enviar la solicitud:', error);
+// 		throw error;
+// 	}
+// }
