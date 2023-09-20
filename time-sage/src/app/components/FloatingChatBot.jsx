@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import ChatBot from './ChatBot';
+import ChatBot from './MyChatBot';
 import Image from 'next/image';
 import message from '../../../public/images/message.svg';
 
