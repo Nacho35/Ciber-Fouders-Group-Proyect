@@ -123,6 +123,10 @@ app.post('/api/dialogflow', async (req, res) => {
 				responseText.push('I missed what you said. What was that?');
 				responseText.push('Sorry, could you say that again?');
 				break;
+			case 'Thanks':
+				responseText.push('you are welcome');
+				responseText.push('a pleasure to serve you');
+				break;
 
 			default:
 				responseText =

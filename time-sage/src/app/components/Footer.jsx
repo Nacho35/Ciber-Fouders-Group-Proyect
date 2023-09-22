@@ -19,19 +19,16 @@ const Footer = () => {
 					<a href='https://github.com/Nacho35'>
 						<Image src={github} alt='icon' />
 					</a>
-					<h3 className='p-1 text-colorFive font-medium'>GitHub</h3>
 				</div>
 				<div className='text-center mx-3'>
 					<a href='https://portfolio-ignacio-morales.netlify.app/'>
 						<Image src={web} alt='icon' />
 					</a>
-					<h3 className='p-1 text-colorFive font-medium'>Web</h3>
 				</div>
 				<div className='text-center mx-3'>
 					<a href='https://www.linkedin.com/in/ignacio-morales35/'>
 						<Image src={linkedin} alt='icon' />
 					</a>
-					<h3 className='p-1 text-colorFive font-medium'>LinkedIn</h3>
 				</div>
 			</div>
 		</footer>

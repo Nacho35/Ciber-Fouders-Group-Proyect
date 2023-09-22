@@ -14,6 +14,28 @@ const MyChatBot = ({ onClose }) => {
 	const handleUserMessage = async e => {
 		e.preventDefault();
 
+		if (!message.trim()) {
+			const emptyResponse =
+				'you must write something otherwise I cant reply if your message is empty dear';
+			const emptyMessage = {
+				text: emptyResponse,
+				sender: 'bot',
+				time: getCurrentTime(),
+			};
+
+			setMessages(prevMessages => [...prevMessages, emptyMessage]);
+			setMessage('');
+
+			setIsBotResponding(false);
+
+			sessionStorage.setItem(
+				'chatMessages',
+				JSON.stringify([...messages, emptyMessage])
+			);
+
+			return;
+		}
+
 		try {
 			const userMessage = {
 				text: message,
@@ -136,7 +158,7 @@ const MyChatBot = ({ onClose }) => {
 			</div>
 			<div ref={messagesEndRef} />
 			<div className='bg-colorFive rounded-b-lg'>
-				<form className='flex justify-between p-4' onSubmit={handleUserMessage}>
+				<form className='flex justify-evenly p-4' onSubmit={handleUserMessage}>
 					<input
 						className='input input-ghost w-full max-w-xs mr-2 text-colorSix'
 						type='text'
