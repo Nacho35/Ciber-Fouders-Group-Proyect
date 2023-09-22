@@ -112,6 +112,12 @@ app.post('/api/dialogflow', async (req, res) => {
 					'To delete a task you must click on the button at the end of the task in the shape of a trash can.'
 				);
 				break;
+			case 'Goodbye':
+				responseText.push('Have a good day I hope it helped');
+				responseText.push('goodbye, take care of yourself');
+				responseText.push('I ll be here if you need me, goodbye');
+				responseText.push('I enjoyed the chat with you, goodbye.');
+				break;
 			case 'Default Fallback Intent':
 				responseText.push('Can you say that again?');
 				responseText.push('I missed what you said. What was that?');
@@ -119,7 +125,9 @@ app.post('/api/dialogflow', async (req, res) => {
 				break;
 
 			default:
-				responseText = 'Sorry, I can t help you with that right now.';
+				responseText =
+					result.fulfillmentText ||
+					'Sorry, I can t help you with that right now.';
 		}
 
 		responseText =

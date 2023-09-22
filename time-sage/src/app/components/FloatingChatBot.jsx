@@ -16,7 +16,7 @@ function FloatingChatBot() {
 	};
 
 	return (
-		<div className='fixed bottom-0 right-0 z-50  border-none'>
+		<div className='fixed bottom-0 right-0 z-50 my-auto border-none'>
 			{isChatOpen ? (
 				<ChatBot onClose={handleChatClose} />
 			) : (

@@ -148,7 +148,7 @@ const Tasks = () => {
 
 	return (
 		<section id='tasks' className='wallpaper-task'>
-			<div className='min-h-screen font-Poppins break-words p-2 w-full '>
+			<div className='min-h-screen break-words p-2 w-full '>
 				<div className='mx-4 mb-4'>
 					<input
 						type='text'

@@ -73,7 +73,7 @@ const EditEventModal = ({ event, onEditEvent }) => {
 				<form
 					method='post'
 					onSubmit={handleSubmit}
-					className='modal-box text-colorSix font-Poppins font-medium flex flex-col items-center'
+					className='modal-box text-colorSix font-medium flex flex-col items-center'
 				>
 					<label htmlFor='event' className='font-bold text-lg text-colorOne'>
 						Event Title

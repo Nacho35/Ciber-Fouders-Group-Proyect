@@ -20,7 +20,7 @@ const Calendar = () => {
 	return (
 		<section className='self-start'>
 			<div>
-				<div className='text-center font-Poppins '>
+				<div className='text-center'>
 					<div className='pt-3 pb-3 flex justify-center bg-colorOne rounded text-colorFive shadow-colorFive'>
 						<Time
 							onChange={setDate}
