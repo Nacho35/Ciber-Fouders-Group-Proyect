@@ -99,7 +99,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 
 13. Generar un Archivo JSON de Credenciales: Luego de conectar tu aplicación a la API, podrás generar un archivo JSON con las credenciales necesarias. Este archivo se utilizará para autenticarte en Dialogflow. Deberás colocarlo en la carpeta "keys" del proyecto. 
 
-14. Configurar el Project ID: Google Cloud te proporcionará un Project ID. Deberás colocar este Project ID en la variable de entorno del proyecto. Se han proporcionado ejemplos en el archivo .env de muestra. Recuerda que la autenticación y la configuración de las credenciales son fundamentales para que tu aplicación pueda comunicarse con Dialogflow de manera segura y efectiva. Asegúrate de seguir las instrucciones proporcionadas por Google Cloud y Dialogflow para configurar correctamente las credenciales y la variable de entorno del Project ID.
+14.  Configurar el Project ID: Google Cloud te proporcionará un Project ID. Deberás colocar este Project ID en la variable de entorno del proyecto. Se han proporcionado ejemplos en el archivo .env de muestra. Recuerda que la autenticación y la configuración de las credenciales son fundamentales para que tu aplicación pueda comunicarse con Dialogflow de manera segura y efectiva. Asegúrate de seguir las instrucciones proporcionadas por Google Cloud y Dialogflow para configurar correctamente las credenciales y la variable de entorno del Project ID.
         
         ## Vincular Firebase con Dialogflow y Obtener Credenciales de Firestore
         
@@ -141,7 +141,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
            
            - Ahora puedes usar el SDK de Firebase Admin para interactuar con Firestore desde tu proyecto de Dialogflow. Puedes almacenar y recuperar datos en Firestore según sea necesario para tu aplicación.
         
-            Estos pasos te permitirán vincular Firebase con Dialogflow y     obtener las credenciales de Firestore para acceder y utilizar     Firestore desde tu proyecto de Dialogflow. Asegúrate de seguir     la documentación de Firebase y Dialogflow para obtener     detalles específicos sobre cómo configurar y utilizar estas     herramientas en tu proyecto.
+   - Estos pasos te permitirán vincular Firebase con Dialogflow y obtener las credenciales de Firestore para acceder y utilizar Firestore desde tu proyecto de Dialogflow. Asegúrate de seguir la documentación de Firebase y Dialogflow para obtener detalles específicos        sobre cómo configurar y utilizar estas herramientas en tu proyecto.
         
         ## Importar Respuestas del Chatbot
         
@@ -165,13 +165,13 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 
 Para instalar Time Sage, sigue estos pasos:
 
-1. Clona este repositorio en tu máquina local: 
+ 1. Clona este repositorio en tu máquina local: 
    
    ```
    git clone https://github.com/Nacho35/Ciber-Fouders-Group-Proyect.git
    ```
    
-   2. Accede al directorio del proyecto:
+   2.  Accede al directorio del proyecto:
    
    ```
    cd Ciber-Fouders-Group-Proyect/time-sage
