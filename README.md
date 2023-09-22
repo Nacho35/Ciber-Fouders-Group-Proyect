@@ -99,7 +99,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 
 13. Generar un Archivo JSON de Credenciales: Luego de conectar tu aplicación a la API, podrás generar un archivo JSON con las credenciales necesarias. Este archivo se utilizará para autenticarte en Dialogflow. Deberás colocarlo en la carpeta "keys" del proyecto. 
 
-14. 14. Configurar el Project ID: Google Cloud te proporcionará un Project ID. Deberás colocar este Project ID en la variable de entorno del proyecto. Se han proporcionado ejemplos en el archivo .env de muestra. Recuerda que la autenticación y la configuración de las credenciales son fundamentales para que tu aplicación pueda comunicarse con Dialogflow de manera segura y efectiva. Asegúrate de seguir las instrucciones proporcionadas por Google Cloud y Dialogflow para configurar correctamente las credenciales y la variable de entorno del Project ID.
+14. Configurar el Project ID: Google Cloud te proporcionará un Project ID. Deberás colocar este Project ID en la variable de entorno del proyecto. Se han proporcionado ejemplos en el archivo .env de muestra. Recuerda que la autenticación y la configuración de las credenciales son fundamentales para que tu aplicación pueda comunicarse con Dialogflow de manera segura y efectiva. Asegúrate de seguir las instrucciones proporcionadas por Google Cloud y Dialogflow para configurar correctamente las credenciales y la variable de entorno del Project ID.
         
         ## Vincular Firebase con Dialogflow y Obtener Credenciales de Firestore
         
@@ -177,7 +177,7 @@ Para instalar Time Sage, sigue estos pasos:
    cd Ciber-Fouders-Group-Proyect/time-sage
    ```
    
-   3. * Instala las Dependencias:
+   3. Instala las Dependencias:
       
       Luego, ejecuta el siguiente comando para instalar las dependencias necesarias en el directorio correspondiente: 
       
