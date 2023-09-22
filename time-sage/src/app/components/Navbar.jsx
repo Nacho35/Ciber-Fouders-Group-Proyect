@@ -20,7 +20,7 @@ const Navbar = () => {
 	}, []);
 
 	return (
-		<nav className='navbar bg-colorOne m-auto font-Poppins fixed top-0 z-50 h-16'>
+		<nav className='navbar bg-colorOne m-auto fixed top-0 z-50 h-16'>
 			<div className='navbar justify-start font-semibold'>
 				<Link
 					id='fast'

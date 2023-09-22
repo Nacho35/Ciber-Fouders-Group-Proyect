@@ -20,9 +20,6 @@ module.exports = {
 			colorEleven: '#7286D3',
 		},
 		extend: {
-			fontFamily: {
-				Poppins: ['Poppins', 'sans-serif'],
-			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic':
@@ -30,5 +27,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('daisyui')],
+	plugins: [require('@tailwindcss/typography'), require('daisyui')],
 };

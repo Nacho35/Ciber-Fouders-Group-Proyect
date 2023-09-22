@@ -30,7 +30,7 @@ const ModalCountdown = () => {
 			{showModal && (
 				<form
 					onSubmit={e => e.preventDefault()}
-					className='modal-box text-colorSix font-Poppins font-medium flex flex-col items-center m-auto'
+					className='modal-box text-colorSix font-medium flex flex-col items-center m-auto'
 				>
 					<label htmlFor='hours' className='font-bold text-lg text-colorOne'>
 						Hours

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/react-in-jsx-scope */
 import './globals.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -5,9 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'tailwindcss/tailwind.css';
 import 'daisyui/dist/full.css';
 
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const M = Montserrat({ subsets: ['latin'] });
 
 export const metadata = {
 	title: 'Fast Diary',
@@ -17,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>{children}</body>
+			<body className={M.className}>{children}</body>
 		</html>
 	);
 }
