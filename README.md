@@ -46,7 +46,6 @@ Fast Diary está diseñado para personas que desean sacar el máximo provecho de
 - Instalación
 - Uso
 - Contribución
-- Licencia
 
 ## Requisitos
 
@@ -98,7 +97,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 12. Prueba tu Agente:
     Utiliza la interfaz de prueba de Dialogflow para probar y depurar tu agente antes de implementarlo en tu aplicación o servicio.
 
-13. *Generar un Archivo JSON de Credenciales: Luego de conectar tu aplicación a la API, podrás generar un archivo JSON con las credenciales necesarias. Este archivo se utilizará para autenticarte en Dialogflow. Deberás colocarlo en la carpeta "keys" del proyecto. *
+13. Generar un Archivo JSON de Credenciales: Luego de conectar tu aplicación a la API, podrás generar un archivo JSON con las credenciales necesarias. Este archivo se utilizará para autenticarte en Dialogflow. Deberás colocarlo en la carpeta "keys" del proyecto. 
 
 14. 14. Configurar el Project ID: Google Cloud te proporcionará un Project ID. Deberás colocar este Project ID en la variable de entorno del proyecto. Se han proporcionado ejemplos en el archivo .env de muestra. Recuerda que la autenticación y la configuración de las credenciales son fundamentales para que tu aplicación pueda comunicarse con Dialogflow de manera segura y efectiva. Asegúrate de seguir las instrucciones proporcionadas por Google Cloud y Dialogflow para configurar correctamente las credenciales y la variable de entorno del Project ID.
         
@@ -142,34 +141,49 @@ Antes de comenzar, asegúrate de tener lo siguiente:
            
            - Ahora puedes usar el SDK de Firebase Admin para interactuar con Firestore desde tu proyecto de Dialogflow. Puedes almacenar y recuperar datos en Firestore según sea necesario para tu aplicación.
         
-        *    Estos pasos te permitirán vincular Firebase con Dialogflow y     obtener las credenciales de Firestore para acceder y utilizar     Firestore desde tu proyecto de Dialogflow. Asegúrate de seguir     la documentación de Firebase y Dialogflow para obtener     detalles *específicos sobre cómo configurar y utilizar estas     herramientas en tu proyecto.
-
-* *
+            Estos pasos te permitirán vincular Firebase con Dialogflow y     obtener las credenciales de Firestore para acceder y utilizar     Firestore desde tu proyecto de Dialogflow. Asegúrate de seguir     la documentación de Firebase y Dialogflow para obtener     detalles específicos sobre cómo configurar y utilizar estas     herramientas en tu proyecto.
+        
+        ## Importar Respuestas del Chatbot
+        
+        Dentro del proyecto, encontrarás una carpeta llamada "extras". En esta carpeta, se encuentra un archivo .RAR que contiene respuestas predefinidas para el chatbot. Puedes utilizar estas respuestas importándolas a tu cuenta de Dialogflow, o si lo prefieres, puedes crear tus propias respuestas personalizadas.
+        
+        Para importar las respuestas predefinidas a tu cuenta de Dialogflow, sigue estos pasos:
+        
+        1. Inicia sesión en tu cuenta de Dialogflow.
+        
+        2. Ve al agente de Dialogflow que deseas configurar.
+        
+        3. En la barra lateral izquierda, selecciona "Configuración" y luego "Exportar y restaurar".
+        
+        4. Haz clic en "Restaurar desde archivo" y selecciona el archivo .RAR que se encuentra en la carpeta "extra" del proyecto.
+        
+        5. Sigue las instrucciones para importar las respuestas al agente.
+        
+        Si prefieres crear tus propias respuestas personalizadas, puedes hacerlo directamente en la plataforma de Dialogflow. Personalizar las respuestas te permitirá adaptar el chatbot a tus necesidades específicas y proporcionar una experiencia única a los usuarios.
 
 ## Instalación
 
 Para instalar Time Sage, sigue estos pasos:
 
-1. *Clona este repositorio en tu máquina local: *
+1. Clona este repositorio en tu máquina local: 
    
    ```
    git clone https://github.com/Nacho35/Ciber-Fouders-Group-Proyect.git
    ```
+   
    2. Accede al directorio del proyecto:
    
    ```
    cd Ciber-Fouders-Group-Proyect/time-sage
    ```
    
-   3. * Instala las Dependencias:*
+   3. * Instala las Dependencias:
       
-      *Luego, ejecuta el siguiente comando para instalar las dependencias necesarias en el directorio correspondiente: *
+      Luego, ejecuta el siguiente comando para instalar las dependencias necesarias en el directorio correspondiente: 
       
       ```
       npm install
       ```
-      
-      **
 
 # Uso de Time Sage
 
@@ -189,7 +203,7 @@ Time Sage utiliza varios servidores para su funcionamiento. Asegúrate de que es
 
 2. Servidor Express (Backend):
 
-*    Ejecuta el siguiente comando para iniciar el servidor Express para la     lógica de backend:*
+Ejecuta el siguiente comando para iniciar el servidor Express para la lógica de backend:
 
 ```
 npm run express
@@ -205,7 +219,7 @@ npm run express
 
 4. ## Acceder a la Aplicación
    
-   *Una vez que todos los servidores estén en ejecución, puedes acceder a Time Sage en tu navegador web visitando la URL correspondiente (generalmente, http://localhost:3000). *
+   Una vez que todos los servidores estén en ejecución, puedes acceder a Time Sage en tu navegador web visitando la URL correspondiente (generalmente, http://localhost:3000)
 
 > Nota: En este proyecto he utilizado los siguentes puertos: el 3000 por defecto para la interfaz de usuario, el 3001 para el Json-Server, y el  8080 para el backend. Puedes cambiarlos si tu quieres.
 
@@ -215,7 +229,7 @@ Una vez que hayas accedido a la aplicación, puedes comenzar a utilizar las dive
 
 ¡Disfruta de la experiencia de Time Sage y mejora tu gestión del tiempo!
 
-**
+
 
 # Contribución al Proyecto
 
@@ -240,7 +254,5 @@ Si tienes sugerencias, comentarios o ideas sobre cómo mejorar Time Sage, siént
 ## Contribuir a la Documentación
 
 La documentación clara y concisa es esencial. Si notas que la documentación necesita mejoras o correcciones, por favor, envía una solicitud de extracción con tus cambios.
-
-
 
 ¡Gracias por usar Time Sage!
